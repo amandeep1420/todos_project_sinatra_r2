@@ -79,6 +79,10 @@ get "/" do
   redirect "/lists"
 end
 
+after do
+  @storage.disconnect
+end
+
 # View list of lists
 get "/lists" do
   @lists = @storage.all_lists
